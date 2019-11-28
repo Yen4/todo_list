@@ -1,7 +1,9 @@
 var mongoose = require("mongoose");
 mongoose.set("debug", true);
 //mongoose.connect("mongodb://localhost/todos_api", { useNewUrlParser: true });
-mongoose.connect("mongodb://localhost:27017/todo_api", { useNewUrlParser: true});
+var url = process.env.DATABASEURL || "mongodb://localhost:27017/todo_api, { useNewUrlParser: true}"
+//mongoose.connect("mongodb://localhost:27017/todo_api", { useNewUrlParser: true});
+mongoose.connect(url);
 
 mongoose.Promise = Promise;
 
