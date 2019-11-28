@@ -1,11 +1,13 @@
 var mongoose = require("mongoose");
 mongoose.set("debug", true);
+console.log(process.env.DATABASEURL);
 //mongoose.connect("mongodb://localhost/todos_api", { useNewUrlParser: true });
-var url = process.env.DATABASEURL || "mongodb://localhost:27017/todo_api, { useNewUrlParser: true}"
+var url = process.env.DATABASEURL || "mongodb://localhost:27017/todo_api"
 //mongoose.connect("mongodb://localhost:27017/todo_api", { useNewUrlParser: true});
 mongoose.connect(url)
 .then(function(){
-    console.log("connected to database");
+    console.log("connected to database: " + url);
+    console.log(process.env.DATABASEURL);
 })
 .catch(function(err){
     console.log(err);
